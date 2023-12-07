@@ -86,7 +86,7 @@ sudo apt-get -y install ca-certificates
 sudo apt-get -y install apt-transport-https 
 sudo apt-get -y install gnupg 
 sudo apt-get -y install gnupg-agent 
-sudo apt-get -y gnome-terminal
+sudo apt-get -y install gnome-terminal
 sudo apt-get -y install lsb-release
 lsb_release -a >> /tmp/README.txt              
 
