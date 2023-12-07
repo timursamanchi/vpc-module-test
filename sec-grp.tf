@@ -14,6 +14,4 @@ module "aws_module_sg" {
     Name = "tf-jenkins-sg"
   }
 }
-output "security_group_id" {
-  value = module.aws_module_sg.security_group_id
-}
+
