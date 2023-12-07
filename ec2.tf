@@ -16,6 +16,6 @@ module "ec2_instance" {
   tags = {
     Name        = "tf-jenkins-master-XMAS"
     Terraform   = "true"
-    Environment = "jenkins"
+    Environment = "jenkins-dev"
   }
 }

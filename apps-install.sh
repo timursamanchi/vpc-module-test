@@ -22,8 +22,19 @@ echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] \
 sudo apt-get update
 sudo apt-get -y install fontconfig openjdk-17-jre 
 sudo apt-get -y install jenkins 
+
+wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt-get update && sudo apt-get -y install terraform
+
 sudo apt-get -y install nginx
+sudo apt-get -y install python3 
+sudo apt-get -y install python3-pip
 sudo apt -y install net-tools
+
+sudo apt-get -y install git 
+sudo apt-get -y install unzip
+sudo apt-get -y build-essential 
 
 sudo systemctl restart jenkins
 sudo systemctl enable jenkins  
