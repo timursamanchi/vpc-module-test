@@ -1,8 +1,7 @@
-
 module "ec2_instance" {
   source = "terraform-aws-modules/ec2-instance/aws"
 
-  name = "t6f-jenkins-master"
+  name = "tf-jenkins-master-XMAS"
   ami  = "ami-0694d931cee176e7d"
 
   instance_type = "t2.micro"
@@ -15,7 +14,7 @@ module "ec2_instance" {
   associate_public_ip_address = true
 
   tags = {
-    Name        = "tf-jenkins-master"
+    Name        = "tf-jenkins-master-XMAS"
     Terraform   = "true"
     Environment = "jenkins"
   }
