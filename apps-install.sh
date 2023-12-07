@@ -53,6 +53,7 @@ echo "# $(date) Reload NGINX to pick up the new configuration..." >> /tmp/README
 sudo apt-get -y install net-tools
 sudo apt-get -y install python3 
 sudo apt-get -y install python3-pip
+sudo apt-get -y install awscli
 sudo pip3 install awsebcli
 
 # Add Docker's official GPG key
@@ -65,21 +66,29 @@ sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 sudo usermod -aG docker $USER
 
 # Print a message indicating the installation is complete
-echo 'Docker has been successfully installed.' >> /tmp/README.txt
+echo "# $(date) Docker has been successfully installed." >> /tmp/README.txt
 
 # Download kubectl binary
 curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.23.6/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 source ~/.bashrc
-echo 'Kubernetes has been successfully installed.' >> /tmp/README.txt
+echo 'Kubernetes (Kubectl) has been successfully installed.' >> /tmp/README.txt
+
+sudo curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | sudo tar xz -C /usr/local/bin
+echo "# $(date) EKSCTL tools has been installed successfully..." >> /tmp/README.txt
 
 sudo apt-get -y install git 
 sudo apt-get -y install unzip
 sudo apt-get -y install build-essential 
 sudo apt-get -y install software-properties-common
+sudo apt-get -y install ca-certificates 
+sudo apt-get -y install apt-transport-https 
+sudo apt-get -y install gnupg 
+sudo apt-get -y install gnupg-agent 
+sudo apt-get -y gnome-terminal
 sudo apt-get -y install lsb-release
-lsb_release -a >> /tmp/README.txt  
+lsb_release -a >> /tmp/README.txt              
 
 sudo systemctl enable docker.service
 sudo systemctl enable containerd.service

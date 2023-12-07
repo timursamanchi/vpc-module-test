@@ -1,4 +1,4 @@
-module "my-test-vpc" {
+module "jenkins-vpc" {
   source          = "terraform-aws-modules/vpc/aws"
   version         = "5.2.0"
   name            = "tf-jenkins-vpc"

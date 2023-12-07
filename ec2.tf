@@ -10,7 +10,7 @@ module "ec2_instance" {
   user_data     = file("apps-install.sh")
 
   vpc_security_group_ids      = [module.aws_module_sg.security_group_id]
-  subnet_id                   = module.my-test-vpc.public_subnets[0]
+  subnet_id                   = module.jenkins-vpc.public_subnets[0]
   associate_public_ip_address = true
 
   tags = {
