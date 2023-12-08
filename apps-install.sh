@@ -50,10 +50,11 @@ EOF
 systemctl reload nginx
 echo "# $(date) Reload NGINX to pick up the new configuration..." >> /tmp/README.txt
 
-sudo apt-get -y install net-tools
-sudo apt-get -y install python3 
-sudo apt-get -y install python3-pip
-sudo apt-get -y install awscli
+# sudo apt-get -y install net-tools
+# sudo apt-get -y install python3 
+# sudo apt-get -y install python3-pip
+# sudo apt-get -y install awscli
+sudo apt-get -y install net-tools python3 python3-pip awscli
 sudo pip3 install awsebcli
 
 # Add Docker's official GPG key
@@ -73,21 +74,22 @@ curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.23.6/bin/l
 chmod +x ./kubectl
 sudo mv ./kubectl /usr/local/bin/kubectl
 source ~/.bashrc
-echo 'Kubernetes (Kubectl) has been successfully installed.' >> /tmp/README.txt
+echo "# $(date) Kubernetes (Kubectl) has been successfully installed." >> /tmp/README.txt
 
 sudo curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | sudo tar xz -C /usr/local/bin
 echo "# $(date) EKSCTL tools has been installed successfully..." >> /tmp/README.txt
 
-sudo apt-get -y install git 
-sudo apt-get -y install unzip
-sudo apt-get -y install build-essential 
-sudo apt-get -y install software-properties-common
-sudo apt-get -y install ca-certificates 
-sudo apt-get -y install apt-transport-https 
-sudo apt-get -y install gnupg 
-sudo apt-get -y install gnupg-agent 
-sudo apt-get -y install gnome-terminal
-sudo apt-get -y install lsb-release
+# sudo apt-get -y install git 
+# sudo apt-get -y install unzip
+# sudo apt-get -y install build-essential 
+# sudo apt-get -y install software-properties-common
+# sudo apt-get -y install ca-certificates 
+# sudo apt-get -y install apt-transport-https 
+# sudo apt-get -y install gnupg 
+# sudo apt-get -y install gnupg-agent 
+# sudo apt-get -y install gnome-terminal
+# sudo apt-get -y install lsb-release
+sudo apt-get -y install git unzip build-essential software-properties-common ca-certificates apt-transport-https gnupg gnupg-agent gnome-terminal lsb-release
 lsb_release -a >> /tmp/README.txt              
 
 sudo systemctl enable docker.service
